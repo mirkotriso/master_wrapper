@@ -1,0 +1,55 @@
+#----<ESA-MASTER>-------------------------------------------------------------- 
+#                                                                               
+#          __/_/  __/__/  __/__/   _/__/_/ __/__/__/ __/__/__/ __/_/__/         
+#         __/ _/__/ __/ __/   __/ __/        __/    __/       __/    __/        
+#        __/  __/  __/ __/__/__/  __/__/    __/    __/__/    __/_/__/           
+#       __/       __/ __/   __/      __/   __/    __/       __/    __/          
+#      __/       __/ __/   __/ _/__/_/    __/    __/__/__/ __/     __/          
+#                                                                               
+# __ ESA Meteoroid & Space Debris Terrestrial Environment Reference Model__     
+#-----------------------------------------------------------------------------  
+# Purpose: Definition of the constellation traffic after the MASTER reference   
+#          epoch.                                                               
+#-----------------------------------------------------------------------------  
+# Note: Lines which may be edited by the user are NOT marked by comment         
+#       sign ('#').                                                             
+#-----------------------------------------------------------------------------  
+#                                                                               
+#---------------------------< Constellation Settings >------------------------  
+# Note: Define the constellations to be analyzed.                               
+#-----------------------------------------------------------------------------  
+#                                                                               
+# No.     -(1:20)- : constellation number                                       
+#                      (up to 20 active constellations may be defined)          
+# Sw.      -(0,1)- : constellation switch                                       
+#                      0 = constellation is switched off                        
+#                      1 = constellation is activated                           
+# Name             : constellation name (up to 12 characters, no spaces)        
+# Npl              : number of orbit planes                                     
+# Nsc              : number of spacecraft per orbit plane incl. spares          
+# hp          [km] : perigee altitude                                           
+# ha          [km] : apogee altitude                                            
+# inc        [deg] : orbit inclination                                          
+# raan       [deg] : right ascension of ascending node of plane # 1             
+# aop        [deg] : argument of perigee of plane # 1                           
+# msc         [kg] : spacecraft mass                                            
+# asc        [m^2] : spacecraft area                                            
+# lsc         [yr] : spacecraft operational lifetime                            
+# xsc       [%/yr] : spacecraft lethality rate                                  
+#                      (percentual share of total no. of s/c failing per year)  
+# nsci             : number of spacecraft launched per installation launch      
+# nscs             : number of spacecraft launched per sustaining launch        
+# isc      -(0,1)- : spacecraft mitigation switch                               
+#                      0 = no deorbiting                                        
+#                      1 = spacecraft is deorbited after operational lifetime   
+# ili      -(0,1)- : installation launch vehicle mitigation switch (see isc)    
+# ils      -(0,1)- : sustaining luanch vehicle mitigation switch (see isc)      
+# tla    [mm/yyyy] : date of first launch                                       
+# top    [mm/yyyy] : date of begin of operation                                 
+# lcon        [yr] : lifetime of total constellation                            
+#                                                                               
+#    No.   Sw. Name         Npl  Nsc     hp      ha    inc   raan    aop     msc    asc   lsc   xsc    nsci  nscs   isc   ili   ils      tla        top    lcon 
+# (1-20) (0,1) |----------|             [km]    [km]  [deg]  [deg]  [deg]    [kg]  [m^2]  [yr] [%/yr]              (0,1) (0,1) (0,1) [mm/yyyy]  [mm/yyyy]  [yr] 
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+  1       0     Galileo        3  10  23616  23616  56.000  0.0000  90.000  635.00  10.300  10.000  2.0000    4    1     0     1     1 0168/04 0168/06  20.000
+#--eof------------------------------------------------------------------eof---  

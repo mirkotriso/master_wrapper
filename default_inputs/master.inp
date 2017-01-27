@@ -1,0 +1,172 @@
+#----<ESA-MASTER>-------------------------------------------------------------- 
+#                                                                               
+#          __/_/  __/__/  __/__/   _/__/_/ __/__/__/ __/__/__/ __/_/__/         
+#         __/ _/__/ __/ __/   __/ __/        __/    __/       __/    __/        
+#        __/  __/  __/ __/__/__/  __/__/    __/    __/__/    __/_/__/           
+#       __/       __/ __/   __/      __/   __/    __/       __/    __/          
+#      __/       __/ __/   __/ _/__/_/    __/    __/__/__/ __/     __/          
+#                                                                               
+# __ ESA Meteoroid & Space Debris Terrestrial Environment Reference Model__     
+#-----------------------------------------------------------------------------  
+# Purpose: Definition of execution parameters of the MASTER command line tool.  
+#-----------------------------------------------------------------------------  
+# Note: Lines which may be edited by the user are NOT marked by comment         
+#       sign ('#').                                                             
+#-----------------------------------------------------------------------------  
+#                                                                               
+#-----------------------------< Run Settings >--------------------------------  
+# Note: Give the program run a name and a comment. Do NOT modify or             
+#       remove the '-(27 ' sequence since it serves as End of String marker.    
+#-----------------------------------:-----------------------------------------  
+# Run identifier (used as output file prefix)                                   
+#-------------------------|                                                     
+master                       -(27 char)-
+# 
+# Run comment (2 lines, appears as header in any output file and in plots)      
+#----------------------------------------------------------------------|        
+ESA MASTER-2009 Model
+
+# 
+#----------------------------< Time Settings >--------------------------------  
+# Note: Specify start and end of the analysis epoch.                            
+#-----------------------------------:-----------------------------------------  
+# Begin and end of analysis time interval                                       
+  2009 05 01 00   -(yyyy mm dd hh)- Begin 
+  2009 05 01 00   -(yyyy mm dd hh)- End 
+#                                                                               
+#--------------------------< Scenario Settings >------------------------------  
+# Note: Specify scenario for future analysis epochs.                            
+#-----------------------------------:-----------------------------------------  
+# Future scenario switch (1=BAU,2=Intermediate,3=Full)                          
+  1               -(1,2,3)-          1 = Business-as-Usual 
+#                                    2 = Intermediate Mitigation                 
+#                                    3 = Full Mitigation                         
+#                                                                               
+#--------------------------< Impactor Settings >------------------------------  
+# Note: Specify which source terms and size/mass ranges shall be considered     
+#       for the analysis.                                                       
+#-----------------------------------:-----------------------------------------  
+# Source switches (0=off,1=on)                                                  
+  1               -(0,1)-            Explosion Fragments 
+  1               -(0,1)-            Collision Fragments 
+  1               -(0,1)-            Launch/Mission related objects 
+  1               -(0,1)-            NaK-droplets 
+  1               -(0,1)-            SRM slag 
+  1               -(0,1)-            SRM Al2O3 dust 
+  1               -(0,1)-            Paint flakes 
+  1               -(0,1)-            Ejecta 
+  1               -(0,1)-            MLI 
+  1               -(0,1)-            Meteoroids 
+  0               -(0,1)-            Clouds 
+# 
+# Cloud file identifier 
+  25730           -(ccccc)-
+# 
+# Constellation projection switch (0=off,1=on)                                  
+  0               -(0,1)-            0 = no constellation projection for TLE 
+#                                    1 = use const. projection for TLE Backgr.   
+#                                                                               
+# Annual meteoroid stream consideration switch                                  
+  0               -(0:2)-            0 = no seasonal met. streams (averaging) 
+#                                    1 = seasonal met. streams (Jenniskens)      
+#                                    2 = seasonal met. streams (Cour-Palais)     
+#                                                                               
+# Background meteoroid population switches (0=off,1=on)                         
+  1               -(0,1)-            Core population 
+  1               -(0,1)-            Asteroidal population 
+  1               -(0,1)-            A population 
+  1               -(0,1)-            B population 
+  1               -(0,1)-            C population 
+#                                                                               
+# Analysis size/mass thresholds                                                 
+  1.00000e-03 m   -(value (m,kg))-   Lower threshold
+  1.00000e+01 m   -(value (m,kg))-   Upper threshold
+#                                                                               
+#---------------------------< Target Settings >-------------------------------  
+# Note: Specify the type of target to be analyzed.                              
+#-----------------------------------:-----------------------------------------  
+# Analysis mode                                                                 
+  3               -(1:3)-            1 = orbiting target 
+#                                    2 = inertial volume                         
+#                                    3 = spatial density                         
+#                                                                               
+# Target type                                                                   
+  1               -(1:3)-            1 = sphere 
+#                                    2 = randomly tumbling plate                 
+#                                    3 = oriented surface (defined in .sdf file) 
+#                                                                               
+# Target orbit(s) (considered only in analysis mode 1)                          
+#  start epoch      end epoch    sma        ecc       inc     raan      AoP       
+#_yyyy_mm_dd_hh__yyyy_mm_dd_hh___[km]_______[-]______[deg]____[deg]____[deg]___   
+  2009 05 01 00  2009 05 01 00  7185.00  1.000e-03  98.0000  316.000  0.00000
+#...                                                                               
+#                                                                               
+# Orbital arc (considered only in analysis mode 1) 
+   0.0000         -(deg)-            Lower argument of true latitude 
+   360.00         -(deg)-            Upper argument of true latitude 
+#                                                                               
+# Inertial volume position (considered only in analysis mode 2)                 
+   7500.0         -(km)-             Geocentric distance 
+   0.0000         -(deg)-            Right ascension 
+   0.0000         -(deg)-            Declination 
+#                                                                               
+# Spatial density profile range (considered only in analysis mode 3)            
+   186.00         -(km)-             Lower altitude limit 
+   36786          -(km)-             Upper altitude limit 
+  -90.000         -(deg)-            Lower declination limit 
+   90.000         -(deg)-            Upper declination limit 
+  -180.00         -(deg)-            Lower right ascension limit 
+   180.00         -(deg)-            Upper right ascension limit 
+#                                                                               
+#---------------------< Definition of Input File Names >----------------------  
+# Note: Give the name of additional input files to be used (do NOT modify or    
+#       remove the '-(120 ' sequence since it serves as End of String marker).  
+#-----------------------------------:-----------------------------------------  
+  default.def     -(120 char)-       Basic output spectrum definition file
+  default.sdf     -(120 char)-       Surface description file
+  default.con     -(120 char)-       Constellation descript. file
+#                                                                               
+#------------------------< Basic Output Settings >----------------------------  
+# Note: Activate or de-activate spectrum and data output.                       
+#-----------------------------------:-----------------------------------------  
+# Differential spectra                                                          
+  1               -(0,1)-            0 = don't generate differential spectra 
+#                                    1 = generate differential spectrum files    
+# Cumulative spectra                                                            
+  1               -(0,1)-             0 = don't generate cumulative spectra 
+#                                    1 = generate cumulative spectrum files      
+# Reverse cumulative spectra                                                    
+  1               -(0,1)-            0 = don't generate reverse cumulative spec. 
+#                                    1 = generate reverse cumulative spec. file  
+# Additional dump of CPE/STENVI data (experts feature)                          
+  0               -(0,1)-            0 = don't dump cell passage characteristics 
+#                                    1 = dump CPE        (ATTENTION: spacious!)  
+  0               -(0,1)-            0 = don't dump STENVI 
+#                                    1 = dump STENVI     (ATTENTION: spacious!)  
+#                                                                               
+# STENVI definition of output spectrum                                          
+# Bin       Min          Max                                                       
+    36 -1.80000e+02  1.80000e+02     Azimuth   [deg]
+     1 -9.00000e+01  9.00000e+01     Elevation [deg]
+    20  5.00000e-01  2.05000e+01     Velocity  [km/s]
+     6  1.00000e-05  1.00000e+01     Diameter  [m]
+     1  0.00000e+00  3.60000e+02     Argument of true Latitude [deg]
+     5  0.00000e+00  5.00000e+00     Density   [g/cm^3]
+#                                                                               
+#--------------------------< Damage Law Settings >----------------------------  
+# Note: Set calibration parameters for the conchoidal diameter damage equation  
+#       if you plan to analyze flux vs. impact feature size on britte surfaces  
+#       (see user manual for details).                                          
+#-----------------------------------:-----------------------------------------  
+# Calibration parameters for conchoidal diameter damage equation                
+   1.0000         -(--)-             Dh/dp ratio 
+   1.0000         -(--)-             Correction factor to the Taylor formula 
+   0.0000         -(mu)-             Taylor diameter reduction 
+   0.0000         -(mu)-             Minimum Taylor diameter Dmin 
+   12000          -(mu)-             Conchoidal interception diameter 
+   100.00         -(mu)-             Mean diameter for Gauss filter 
+   4.0000         -(--)-             Standard deviation for Gauss filter 
+   0.80000        -(--)-             Gauss factor 
+#                                                                               
+#                                                                               
+#--eof------------------------------------------------------------------eof---  

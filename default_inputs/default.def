@@ -1,0 +1,112 @@
+#----<ESA-MASTER>-------------------------------------------------------------- 
+#                                                                               
+#          __/_/  __/__/  __/__/   _/__/_/ __/__/__/ __/__/__/ __/_/__/         
+#         __/ _/__/ __/ __/   __/ __/        __/    __/       __/    __/        
+#        __/  __/  __/ __/__/__/  __/__/    __/    __/__/    __/_/__/           
+#       __/       __/ __/   __/      __/   __/    __/       __/    __/          
+#      __/       __/ __/   __/ _/__/_/    __/    __/__/__/ __/     __/          
+#                                                                               
+# __ ESA Meteoroid & Space Debris Terrestrial Environment Reference Model__     
+#-----------------------------------------------------------------------------  
+# Purpose: Definition of basic parameters of output spectra for the MASTER      
+#          command line tool.                                                   
+#-----------------------------------------------------------------------------  
+# Note: Lines which may be edited by the user are NOT marked by comment         
+#       sign('#').                                                              
+#-----------------------------------------------------------------------------  
+#                                                                               
+#----------------< Definition of 2D distribution output >---------------------  
+# Note: Define the settings for 2D output spectra(Do NOT rearrange or renum-    
+#       ber spectrum definitions, since the program depends on that order).     
+#-----------------------------------------------------------------------------  
+#                                                                               
+# No.     -(1:27)- : spectrum number(not used by the application)               
+#                                                                               
+# Sw.      -(0,1)- : 0 = don't generate spectrum                                
+#                    1 = generate it                                            
+#                                                                               
+# Log.     -(0,1)- : 0 = don't use log scale on x axis                          
+#                    1 = use log scale                                          
+#                                                                               
+# Auto     -(0,1)- : 0 = no automatic Min/Max determination                     
+#                    1 = try to adapt Min/Max automatically                     
+#                                                                               
+# Min.             : minimum value                                              
+#                                                                               
+# Max.             : maximum value                                              
+#                                                                               
+# Clsw/no          : >0 = Width of spectral classes                             
+#                    <0 = Number of spectral classes                            
+#                                                                               
+# Name -(25 char)- : name of the distribution                                   
+#                                                                               
+# Unit  -(7 char)- : unit(not used by the application)                          
+#                                                                               
+#    No.   Sw.  Log. Auto     Min.       Max.      Clsw/no  Name                       Unit 
+# (1:25) (0,1) (0,1) (0,1)                                  |-----------------------| |-----| 
+#-------------------------------------------------------------------------------------------- 
+    1     1     1     1     1.000e-15  1.000e+05  4.000e-01  object mass               [kg] 
+    2     1     1     1     1.000e-06  1.000e+01  1.000e-01  object diameter           [m] 
+    3     1     0     0     6.500e+03  4.500e+04 -2.500e+01  object semi major axis    [km] 
+    4     0     0     0     1.500e+06  1.500e+08  8.000e+06  object perihel radius     [km] 
+    5     1     1     0     1.000e-04  1.000e+00  1.000e-01  object eccentricity       [-] 
+    6     1     0     0     0.000e+00  1.500e+02  5.000e+00  object inclination        [deg] 
+    7     0     0     0    -1.800e+02  1.800e+02  5.000e+00  object raan               [deg] 
+    8     1     0     0     0.000e+00  3.600e+02  5.000e+00  impact arg. of true lat.  [deg] 
+    9     1     0     0     0.000e+00  4.000e+01  1.000e+00  impact velocity           [km/s] 
+   10     1     0     0    -1.800e+02  1.800e+02  5.000e+00  impact azimuth angle      [deg] 
+   11     1     0     0    -9.000e+01  9.000e+01  5.000e+00  impact elevation angle    [deg] 
+   12     0     0     0     1.860e+02  3.679e+04 -2.500e+01  impact altitude           [km] 
+   13     0     0     0     0.000e+00  3.600e+02  5.000e+00  impact right ascension    [deg] 
+   14     0     0     0     0.000e+00  3.600e+02  1.200e+01  impact eclipt. longitude  [deg] 
+   15     1     0     0    -9.000e+01  9.000e+01  5.000e+00  impact declination        [deg] 
+   16     0     0     0    -9.000e+01  9.000e+01  5.000e+00  impact eclipt. latitude   [deg] 
+   17     0     0     1     2.009e+03  2.009e+03  1.000e+00  time                      [yr] 
+   18     0     1     0     1.000e-07  1.000e+01  1.500e-01  ballistic limit           [m] 
+   19     0     1     0     1.000e-07  1.000e+01  1.500e-01  conchoidal diameter       [m] 
+#--------------------------------------------------------------------------------------------- 
+   20     0     1     1     1.000e-15  1.000e+05  4.000e-01  s.d. mass                 [kg] 
+   21     0     1     1     1.000e-06  1.000e+01  1.000e-01  s.d. diameter             [m] 
+   22     1     1     1     1.860e+02  3.679e+04 -1.000e+02  s.d. altitude             [km] 
+   23     1     0     1    -9.000e+01  9.000e+01  5.000e+00  s.d. declination          [deg] 
+   24     0     0     1    -1.800e+02  1.800e+02  5.000e+00  s.d. right ascension      [deg] 
+   25     0     0     1     1.958e+03  2.009e+03  1.000e+00  s.d. time                 [yr] 
+#--------------------------------------------------------------------------------------------- 
+   26     0     0     0     0.000e+00  4.000e+01  1.000e+00  surface normal velocity   [km/s] 
+   27     0     0     0     0.000e+00  9.000e+01  2.500e+00  surface impact angle      [deg] 
+#                                                                                              
+#----------------< Definition of 3D distribution output >--------------------- 
+# Note: Define the settings for 3D output spectra. Up to 10 pairings of above  
+# 2D spectrums can be specified. This may be any combination of spectra 1--19, 
+# or a pairing of spectrum 20--25. DO NOT use spectrum 26 and 27 for 3D        
+# spectrum definition, nor try to combine flux and density spectra!            
+# The resulting resolution of the flux 3D spectra may be lower than            
+# specified for the 2D case, since the program can handle a limited number of  
+# classes only. Spatial density analysis, however, requires an identical       
+# resolution of 2D and 3D spectra. A 3D density plot will not be generated, if 
+# the requested 2D resolution cannot be fulfilled.                             
+#-----------------------------------------------------------------------------                 
+#                                                                                              
+# No.     -(1:10)- : spectrum number(not used by the application)                              
+#                                                                                              
+# Sw.      -(0,1)- : 0 = don't generate spectrum                                               
+#                    1 = generate it                                                           
+#                                                                                              
+# Spc1    -(1:25)- : index of the first 2D spectrum to be used                                 
+#                                                                                              
+# Spc2    -(1:25)- : index of the second 2D spectrum to be used                                
+#                                                                                              
+#    No.   Sw.  Spc1   Spc2                                                                    
+# (1:10) (0,1) (1:25) (1:25)                                                                   
+#----------------------------                                                                  
+       1     0      8     10 
+       2     0     10     11 
+       3     0     10      9 
+       4     0     10     15 
+       5     0      3      5 
+       6     0      3      6 
+       7     0      6      9 
+       8     0      2      9 
+       9     1     22     23 
+      10     0     22     24 
+#--eof------------------------------------------------------------------eof---  
